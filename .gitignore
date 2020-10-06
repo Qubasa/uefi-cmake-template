@@ -1,4 +1,9 @@
 .envrc
+debug.log
+cdimage.iso
+iso/
+.ccls-cache
+build/
 .direnv
 .history
 .__pycache__
