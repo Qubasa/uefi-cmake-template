@@ -1,4 +1,5 @@
 #include <Uefi.h>
+#include <main.h>
 
 EFI_STATUS efi_main([[maybe_unused]] EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
   EFI_STATUS Status;
@@ -7,9 +8,11 @@ EFI_STATUS efi_main([[maybe_unused]] EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *S
   /* Store the system table for future use in other functions */
   auto ST = SystemTable;
 
-  CHAR16 hello[] = { (CHAR16) L"Greetings World\n\r" };
+  /* CHAR16 hello[] = { L"Greetings World 2\n\r" }; */
+  /* const CHAR16 hello[] = { L"Greetings World 2\n\r" }; */
+
   /* Say hi */
-  Status = ST->ConOut->OutputString(ST->ConOut, hello);
+  Status = ST->ConOut->OutputString(ST->ConOut, L"Greetings World 3\n\r");
   if (EFI_ERROR(Status))
     return Status;
 

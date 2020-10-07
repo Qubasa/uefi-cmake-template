@@ -9,15 +9,6 @@ with import <nixpkgs> {};
       gnumake
       mtools
       xorriso
-
-      (with python38Packages; [
-        pip
-        ipython
-        capstone
-        unicorn
-        ropper
-      ])
-
     ];
     shellHook = ''
       export HISTFILE=${toString ./.history}

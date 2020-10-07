@@ -11,7 +11,6 @@ set(CMAKE_CXX_COMPILER ${Clang_P})
 # Find clang executable and set it as compiler
 find_program(Clang_C clang REQUIRED True)
 set(CMAKE_C_COMPILER ${Clang_C})
-
 # lots of warnings and all warnings as errors
 add_compile_options(-Wall -Wextra -pedantic -Werror
     -Wno-unused-variable
@@ -28,6 +27,7 @@ set(CMAKE_CXX_COMPILER_TARGET  x86_64-unknown-windows)
 add_compile_options(-ffreestanding) # Baremetal environment
 add_compile_options(-fshort-wchar) # Make L strings two bytes wide
 add_compile_options(-mno-red-zone) # Disable dangerous optimization
+add_compile_options(-masm=intel) # Enable intel asm syntax
 
 # Ignore errors to get EDK2 headers to work
 add_compile_options(-Wno-unused-command-line-argument)
@@ -35,6 +35,7 @@ add_compile_options(-Wno-c11-extensions)
 add_compile_options(-Wno-c99-extensions)
 add_compile_options(-Wno-language-extension-token)
 add_compile_options(-Wno-microsoft-enum-value)
+add_compile_options(-Wno-writable-strings)
 
 # Use windows lld linker & add linker options
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fuse-ld=lld-link")
