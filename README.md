@@ -17,6 +17,15 @@ $ make
 ```
 
 This should output a binary called `BOOTX64.EFI`.
-Now create a iso image by executing the shell script `create_iso.sh`.
+Now create an iso image by executing the shell script `create_iso.sh`.
 Afterwards boot into qemu by executing `./run.sh`.
+
+
+## Updating UEFI headers
+The current efi headers are from the efi specification 2.8. If you want to update them
+checkout the [edk2](https://github.com/tianocore/edk2) and copy the contents of the folder
+`edk2/MdePkg/Include` to `include/UEFI`. Then patch one line in `include/UEFI/x64/ProcessorBind.h`
+from `typedef unsigned short  CHAR16;` to `typedef wchar_t CHAR16;`.
+
+You should probably also update `bios.bin` by [building OVMF from edk2](https://github.com/tianocore/tianocore.github.io/wiki/How-to-build-OVMF)
 
