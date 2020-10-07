@@ -29,3 +29,8 @@ from `typedef unsigned short  CHAR16;` to `typedef wchar_t CHAR16;`.
 
 You should probably also update `bios.bin` by [building OVMF from edk2](https://github.com/tianocore/tianocore.github.io/wiki/How-to-build-OVMF)
 
+
+## Trivia
+You can inspect the generated assembly by executing `make src/main.s`
+and then viewing the generated asm file with your favourite editor.
+
