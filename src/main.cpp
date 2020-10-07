@@ -8,15 +8,11 @@ EFI_STATUS efi_main([[maybe_unused]] EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *S
   /* Store the system table for future use in other functions */
   auto ST = SystemTable;
 
-  /* CHAR16 hello[] = { L"Greetings World 2\n\r" }; */
-  /* const CHAR16 hello[] = { L"Greetings World 2\n\r" }; */
-
   /* Say hi */
   Status = ST->ConOut->OutputString(ST->ConOut, L"Greetings World 3\n\r");
   if (EFI_ERROR(Status))
     return Status;
 
-  /* const wchar_t asd = {}; */
 
   /* Now wait for a keystroke before continuing, otherwise your
      message will flash off the screen before you see it.

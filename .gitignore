@@ -4,6 +4,8 @@ cdimage.iso
 iso/
 .ccls-cache
 build/
+libcxx
+lld-dev
 .direnv
 .history
 .__pycache__

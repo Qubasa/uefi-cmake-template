@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.16)
 # Set debug mode
 set(CMAKE_BUILD_TYPE Debug)
 
+# Disable all optimisation
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 
 # Find clang++ executable and set it as compiler
 find_program(Clang_P clang++ REQUIRED True)
@@ -63,6 +66,9 @@ endif()
 # add FetchContent
 include(FetchContent)
 
+# NixOS specific
+link_directories(lld-dev/lib)
+
 # add the executable
 add_executable(${PROJECT_NAME} src/main.cpp)
 
@@ -78,4 +84,4 @@ target_include_directories(${PROJECT_NAME} PUBLIC include include/UEFI
 # )
 # FetchContent_MakeAvailable(fmt)
 
-# target_link_libraries(${PROJECT_NAME} fmt)
+ # target_link_libraries(${PROJECT_NAME} fmt)
